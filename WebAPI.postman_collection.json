@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "a646498e-85c9-447b-88b6-6e4fd75b6799",
+		"name": "WebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JSON Login",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 0,\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Api.Login\",\r\n        \"params\": {\r\n            \"user\": \"json\",\r\n            \"password\": \"w\"\r\n        }\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON GetPermissions",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Api.GetPermissions\",\r\n        \"id\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Version",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Api.Version\",\r\n        \"id\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Ping",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"id\": 1,\r\n        \"method\": \"Api.Ping\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON GetCertificateUrl",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Api.GetCertificateUrl\",\r\n        \"id\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Logout",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "jf9MyBhb1YhkmOCmF8n.+9ss1FmI",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Api.Logout\",\r\n        \"id\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Browse",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n        {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"id\": 4,\r\n        \"method\": \"PlcProgram.Browse\",\r\n            \"params\": {\r\n            \"var\": \"\\\"Datenbaustein_1\\\".myUDT\",\r\n            \"mode\": \"children\"\r\n        }\r\n    },\r\n        {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"id\": 5,\r\n        \"method\": \"PlcProgram.Browse\",\r\n            \"params\": {\r\n            \"var\": \"\\\"Datenbaustein_1\\\".myUDT.bit2\",\r\n            \"mode\": \"var\"\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Read",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"PlcProgram.Read\",\r\n        \"params\": {\r\n            \"var\": \"\\\"Datenbaustein_1\\\".myArray[2]\"\r\n        }\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"PlcProgram.Read\",\r\n        \"params\": {\r\n            \"var\": \"\\\"var_mem\\\"\"\r\n        }\r\n    },\r\n        {\r\n        \"id\": 3,\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"PlcProgram.Read\",\r\n        \"params\": {\r\n            \"var\": \"\\\"Datenbaustein_1\\\".myUDT.bit0\"\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Write",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"PlcProgram.Write\",\r\n        \"id\": 1,\r\n        \"params\": {\r\n            \"var\": \"\\\"Datenbaustein_1\\\".myArray[2]\",\r\n            \"value\": true\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON ReadOperatingMode",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"method\": \"Plc.ReadOperatingMode\",\r\n        \"id\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON RequestChangeOperatingMode",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "my+dAJD1TgKQUwsdGe9SBCH25Rw.",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Auth-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"jsonrpc\": \"2.0\",\r\n        \"id\": 1,\r\n        \"method\": \"Plc.RequestChangeOperatingMode\",\r\n        \"params\": {\r\n            \"mode\": \"run\"\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.0.3/api/jsonrpc",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"3"
+					],
+					"path": [
+						"api",
+						"jsonrpc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
