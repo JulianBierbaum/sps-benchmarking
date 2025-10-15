@@ -1,0 +1,67 @@
+{
+  "protocol": "OPC UA",
+  "server": "opc.tcp://192.168.10.61:4840",
+  "timestamp": "2025-10-15T16:38:37.252035",
+  "tests": {
+    "bool_write": {
+      "test": "Bool Write",
+      "iterations": 1000,
+      "successful": 1000,
+      "errors": 0,
+      "min_ms": 6.658,
+      "max_ms": 44.408,
+      "mean_ms": 8.212,
+      "median_ms": 8.092,
+      "stdev_ms": 1.654,
+      "throughput_ops_per_sec": 121.77
+    },
+    "int16_write": {
+      "test": "Int16 Write",
+      "iterations": 1000,
+      "successful": 1000,
+      "errors": 0,
+      "min_ms": 6.473,
+      "max_ms": 71.536,
+      "mean_ms": 8.258,
+      "median_ms": 8.023,
+      "stdev_ms": 3.004,
+      "throughput_ops_per_sec": 121.09
+    },
+    "int32_write": {
+      "test": "Int32 Write",
+      "iterations": 1000,
+      "successful": 1000,
+      "errors": 0,
+      "min_ms": 6.57,
+      "max_ms": 55.877,
+      "mean_ms": 8.335,
+      "median_ms": 8.064,
+      "stdev_ms": 3.085,
+      "throughput_ops_per_sec": 119.97
+    },
+    "bulk_write": {
+      "test": "Bulk Data Write (~800 Bytes)",
+      "error": "Keine g\u00fcltigen Messwerte",
+      "iterations": 100,
+      "errors": 100
+    },
+    "bulk_read": {
+      "test": "Bulk Data Read (~800 Bytes)",
+      "error": "Keine g\u00fcltigen Messwerte",
+      "iterations": 100,
+      "errors": 100
+    },
+    "mixed_operations": {
+      "test": "Mixed Operations",
+      "iterations": 500,
+      "successful": 500,
+      "errors": 0,
+      "min_ms": 45.2,
+      "max_ms": 133.971,
+      "mean_ms": 54.973,
+      "median_ms": 48.347,
+      "stdev_ms": 17.351,
+      "throughput_ops_per_sec": 18.19
+    }
+  }
+}
