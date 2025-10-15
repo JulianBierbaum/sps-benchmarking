@@ -1,0 +1,8 @@
+/adapters
+    opcua_adapter.py
+    webapi_adapter.py
+    snap7_adapter.py
+test_runner.py
+metrics.py
+logger.py
+results.csv/json
