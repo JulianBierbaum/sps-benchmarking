@@ -1,0 +1,41 @@
+SPS API BENCHMARK REPORT
+============================================================
+
+Test: Single_Write_1ops
+  Operations:   11
+  Duration:     10.01 s
+  Ops/sec:      1.10
+  Latency P50:  7.78 ms
+  Latency P90:  8.64 ms
+  Latency P99:  8.81 ms
+  Timestamp:    2025-10-15T17:16:44.944022
+------------------------------------------------------------
+Test: Single_Write_5ops
+  Operations:   51
+  Duration:     10.01 s
+  Ops/sec:      5.10
+  Latency P50:  7.58 ms
+  Latency P90:  8.09 ms
+  Latency P99:  8.68 ms
+  Timestamp:    2025-10-15T17:16:54.953738
+------------------------------------------------------------
+Test: Single_Write_10ops
+  Operations:   101
+  Duration:     10.01 s
+  Ops/sec:      10.09
+  Latency P50:  7.77 ms
+  Latency P90:  8.41 ms
+  Latency P99:  8.80 ms
+  Timestamp:    2025-10-15T17:17:04.963729
+------------------------------------------------------------
+Test: Bulk_Write_1000_elements
+  Operations:   10
+  Duration:     0.08 s
+  Ops/sec:      126.43
+  Latency P50:  0.00 ms
+  Latency P90:  0.00 ms
+  Latency P99:  0.00 ms
+  Timestamp:    2025-10-15T17:17:05.045641
+------------------------------------------------------------
+
+Plots saved in: results/
