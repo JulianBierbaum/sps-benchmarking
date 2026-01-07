@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Tuple
 
+
 class ProtocolAdapter(ABC):
     """Abstract base class for SPS protocol adapters (e.g., WebAPI, Modbus, OPC UA)."""
 
