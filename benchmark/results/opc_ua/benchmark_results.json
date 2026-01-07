@@ -2,45 +2,45 @@
   {
     "test_name": "Single_Write_1ops",
     "total_operations": 11,
-    "duration_seconds": 10.011432409286499,
-    "ops_per_second": 1.0987438710365278,
-    "latency_p50_ms": 10.449647903442383,
-    "latency_p90_ms": 11.45172119140625,
-    "latency_p99_ms": 11.794567108154297,
+    "duration_seconds": 10.012690782546997,
+    "ops_per_second": 1.0986057832899394,
+    "latency_p50_ms": 11.055231094360352,
+    "latency_p90_ms": 12.628316879272461,
+    "latency_p99_ms": 15.282392501831055,
     "throughput_kbps": 0.0,
-    "timestamp": "2026-01-07T14:44:39.218739"
+    "timestamp": "2026-01-07T15:14:36.392329"
   },
   {
     "test_name": "Single_Write_5ops",
     "total_operations": 51,
-    "duration_seconds": 10.009651184082031,
-    "ops_per_second": 5.0950826419509365,
-    "latency_p50_ms": 10.239124298095703,
-    "latency_p90_ms": 12.851715087890625,
-    "latency_p99_ms": 13.849496841430664,
+    "duration_seconds": 10.011365413665771,
+    "ops_per_second": 5.094210219355662,
+    "latency_p50_ms": 10.992765426635742,
+    "latency_p90_ms": 12.488603591918945,
+    "latency_p99_ms": 14.243602752685547,
     "throughput_kbps": 0.0,
-    "timestamp": "2026-01-07T14:44:49.228562"
+    "timestamp": "2026-01-07T15:14:46.403847"
   },
   {
     "test_name": "Single_Write_10ops",
     "total_operations": 101,
-    "duration_seconds": 10.010013341903687,
-    "ops_per_second": 10.089896641515564,
-    "latency_p50_ms": 9.140968322753906,
-    "latency_p90_ms": 10.32257080078125,
-    "latency_p99_ms": 16.210079193115234,
+    "duration_seconds": 10.01076889038086,
+    "ops_per_second": 10.089135120984444,
+    "latency_p50_ms": 9.268999099731445,
+    "latency_p90_ms": 10.934114456176758,
+    "latency_p99_ms": 14.688968658447266,
     "throughput_kbps": 0.0,
-    "timestamp": "2026-01-07T14:44:59.238777"
+    "timestamp": "2026-01-07T15:14:56.414793"
   },
   {
     "test_name": "Bulk_Write_100_elements",
     "total_operations": 10,
-    "duration_seconds": 0.08711886405944824,
-    "ops_per_second": 114.78570236150223,
+    "duration_seconds": 0.09267616271972656,
+    "ops_per_second": 107.90261170223714,
     "latency_p50_ms": 0,
     "latency_p90_ms": 0,
     "latency_p99_ms": 0,
     "throughput_kbps": 0,
-    "timestamp": "2026-01-07T14:44:59.326153"
+    "timestamp": "2026-01-07T15:14:56.507754"
   }
 ]

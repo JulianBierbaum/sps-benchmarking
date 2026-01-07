@@ -8,12 +8,12 @@ Test: Single_Write_1ops
 --------------------------------------------------------------------------------
 Metric                         WebAPI               OPC UA               Winner    
 --------------------------------------------------------------------------------
-Ops/sec                        1.06                 1.10                 OPC UA    
-Latency P50 (ms)               311.94               10.45                OPC UA    
-Latency P90 (ms)               339.96               11.45                OPC UA    
-Latency P99 (ms)               359.37               11.79                OPC UA    
+Ops/sec                        1.07                 1.10                 OPC UA    
+Latency P50 (ms)               291.61               11.06                OPC UA    
+Latency P90 (ms)               312.72               12.63                OPC UA    
+Latency P99 (ms)               388.00               15.28                OPC UA    
 
-→ OPC UA is 3.4% faster
+→ OPC UA is 2.9% faster
 
 ================================================================================
 
@@ -21,12 +21,12 @@ Test: Single_Write_5ops
 --------------------------------------------------------------------------------
 Metric                         WebAPI               OPC UA               Winner    
 --------------------------------------------------------------------------------
-Ops/sec                        3.40                 5.10                 OPC UA    
-Latency P50 (ms)               284.97               10.24                OPC UA    
-Latency P90 (ms)               312.07               12.85                OPC UA    
-Latency P99 (ms)               328.81               13.85                OPC UA    
+Ops/sec                        3.22                 5.09                 OPC UA    
+Latency P50 (ms)               307.40               10.99                OPC UA    
+Latency P90 (ms)               315.42               12.49                OPC UA    
+Latency P99 (ms)               352.92               14.24                OPC UA    
 
-→ OPC UA is 33.3% faster
+→ OPC UA is 36.7% faster
 
 ================================================================================
 
@@ -34,12 +34,12 @@ Test: Single_Write_10ops
 --------------------------------------------------------------------------------
 Metric                         WebAPI               OPC UA               Winner    
 --------------------------------------------------------------------------------
-Ops/sec                        3.41                 10.09                OPC UA    
-Latency P50 (ms)               282.57               9.14                 OPC UA    
-Latency P90 (ms)               312.85               10.32                OPC UA    
-Latency P99 (ms)               316.93               16.21                OPC UA    
+Ops/sec                        3.26                 10.09                OPC UA    
+Latency P50 (ms)               307.63               9.27                 OPC UA    
+Latency P90 (ms)               311.13               10.93                OPC UA    
+Latency P99 (ms)               366.69               14.69                OPC UA    
 
-→ OPC UA is 66.2% faster
+→ OPC UA is 67.7% faster
 
 ================================================================================
 
@@ -47,13 +47,13 @@ Test: Bulk_Write_100_elements
 --------------------------------------------------------------------------------
 Metric                         WebAPI               OPC UA               Winner    
 --------------------------------------------------------------------------------
-Ops/sec                        3.36                 114.79               OPC UA    
-Latency P50 (ms)               289.31               0.00                 OPC UA    
-Latency P90 (ms)               326.75               0.00                 OPC UA    
-Latency P99 (ms)               326.75               0.00                 OPC UA    
-Throughput (kB/s)              5.52                 0.00                 WebAPI    
+Ops/sec                        3.23                 107.90               OPC UA    
+Latency P50 (ms)               312.55               0.00                 OPC UA    
+Latency P90 (ms)               319.21               0.00                 OPC UA    
+Latency P99 (ms)               319.21               0.00                 OPC UA    
+Throughput (kB/s)              5.32                 0.00                 WebAPI    
 
-→ OPC UA is 97.1% faster
+→ OPC UA is 97.0% faster
 
 ================================================================================
 

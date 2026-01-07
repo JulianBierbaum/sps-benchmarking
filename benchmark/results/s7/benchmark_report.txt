@@ -5,37 +5,38 @@ Test: Single_Write_1ops
   Operations:   11
   Duration:     10.01 s
   Ops/sec:      1.10
-  Latency P50:  11.06 ms
-  Latency P90:  12.63 ms
-  Latency P99:  15.28 ms
-  Timestamp:    2026-01-07T15:14:36.392329
+  Latency P50:  9.91 ms
+  Latency P90:  11.13 ms
+  Latency P99:  14.26 ms
+  Timestamp:    2026-01-07T15:15:08.771736
 ------------------------------------------------------------
 Test: Single_Write_5ops
   Operations:   51
   Duration:     10.01 s
   Ops/sec:      5.09
-  Latency P50:  10.99 ms
-  Latency P90:  12.49 ms
-  Latency P99:  14.24 ms
-  Timestamp:    2026-01-07T15:14:46.403847
+  Latency P50:  9.97 ms
+  Latency P90:  11.54 ms
+  Latency P99:  27.23 ms
+  Timestamp:    2026-01-07T15:15:18.783535
 ------------------------------------------------------------
 Test: Single_Write_10ops
   Operations:   101
   Duration:     10.01 s
   Ops/sec:      10.09
-  Latency P50:  9.27 ms
-  Latency P90:  10.93 ms
-  Latency P99:  14.69 ms
-  Timestamp:    2026-01-07T15:14:56.414793
+  Latency P50:  7.86 ms
+  Latency P90:  8.97 ms
+  Latency P99:  9.96 ms
+  Timestamp:    2026-01-07T15:15:28.792062
 ------------------------------------------------------------
 Test: Bulk_Write_100_elements
   Operations:   10
-  Duration:     0.09 s
-  Ops/sec:      107.90
-  Latency P50:  0.00 ms
-  Latency P90:  0.00 ms
-  Latency P99:  0.00 ms
-  Timestamp:    2026-01-07T15:14:56.507754
+  Duration:     0.08 s
+  Ops/sec:      126.33
+  Latency P50:  7.90 ms
+  Latency P90:  9.12 ms
+  Latency P99:  9.12 ms
+  Throughput:   207.76 kB/s
+  Timestamp:    2026-01-07T15:15:28.871518
 ------------------------------------------------------------
 
 Plots saved in: results/
