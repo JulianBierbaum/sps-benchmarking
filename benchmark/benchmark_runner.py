@@ -111,9 +111,10 @@ class BenchmarkRunner:
         print(f"Bulk Write Benchmark: {repetitions} repetitions")
         print(f"{'='*60}")
         
-        # Generate test data for BulkData[0..999]
+        # Generate test data for BulkData[0..99]
         # Using LTime format: LT#<value>ns
-        bulk_data = [f"LT#{i * 1000000}ns" for i in range(1000)]
+        # Note: The PLC BulkData array has 100 elements (indices 0-99)
+        bulk_data = [f"LT#{i * 1000000}ns" for i in range(100)]
         data_size_bytes = len(json.dumps(bulk_data))
         
         latencies = []
@@ -144,7 +145,7 @@ class BenchmarkRunner:
             p50 = p90 = p99 = throughput_kbps = 0
         
         result = BenchmarkResult(
-            test_name=f"Bulk_Write_1000_elements",
+            test_name=f"Bulk_Write_100_elements",
             total_operations=repetitions,
             duration_seconds=total_duration,
             ops_per_second=repetitions / total_duration,

@@ -3,40 +3,40 @@ SPS API BENCHMARK REPORT
 
 Test: Single_Write_1ops
   Operations:   11
-  Duration:     10.37 s
+  Duration:     10.36 s
   Ops/sec:      1.06
-  Latency P50:  365.45 ms
-  Latency P90:  385.81 ms
-  Latency P99:  397.33 ms
-  Timestamp:    2025-10-15T17:16:06.765614
+  Latency P50:  311.94 ms
+  Latency P90:  339.96 ms
+  Latency P99:  359.37 ms
+  Timestamp:    2026-01-07T14:44:03.400027
 ------------------------------------------------------------
 Test: Single_Write_5ops
-  Operations:   27
-  Duration:     10.16 s
-  Ops/sec:      2.66
-  Latency P50:  372.29 ms
-  Latency P90:  384.79 ms
-  Latency P99:  402.73 ms
-  Timestamp:    2025-10-15T17:16:16.931186
+  Operations:   34
+  Duration:     10.01 s
+  Ops/sec:      3.40
+  Latency P50:  284.97 ms
+  Latency P90:  312.07 ms
+  Latency P99:  328.81 ms
+  Timestamp:    2026-01-07T14:44:13.409146
 ------------------------------------------------------------
 Test: Single_Write_10ops
-  Operations:   27
-  Duration:     10.06 s
-  Ops/sec:      2.68
-  Latency P50:  366.94 ms
-  Latency P90:  386.20 ms
-  Latency P99:  391.35 ms
-  Timestamp:    2025-10-15T17:16:26.989967
+  Operations:   35
+  Duration:     10.26 s
+  Ops/sec:      3.41
+  Latency P50:  282.57 ms
+  Latency P90:  312.85 ms
+  Latency P99:  316.93 ms
+  Timestamp:    2026-01-07T14:44:23.669450
 ------------------------------------------------------------
-Test: Bulk_Write_1000_elements
+Test: Bulk_Write_100_elements
   Operations:   10
-  Duration:     4.30 s
-  Ops/sec:      2.32
-  Latency P50:  420.83 ms
-  Latency P90:  462.33 ms
-  Latency P99:  462.33 ms
-  Throughput:   40.60 kB/s
-  Timestamp:    2025-10-15T17:16:31.294603
+  Duration:     2.98 s
+  Ops/sec:      3.36
+  Latency P50:  289.31 ms
+  Latency P90:  326.75 ms
+  Latency P99:  326.75 ms
+  Throughput:   5.52 kB/s
+  Timestamp:    2026-01-07T14:44:26.647390
 ------------------------------------------------------------
 
 Plots saved in: results/

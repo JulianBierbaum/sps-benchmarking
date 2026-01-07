@@ -1,17 +1,24 @@
 import requests
 import urllib3
 import time
+import os
+from dotenv import load_dotenv
 from typing import Dict, List, Tuple, Any
 from .base import ProtocolAdapter
+
+load_dotenv()
 
 class SpsWebApiAdapter(ProtocolAdapter):
     """Implements the SPS communication via HTTP JSON-RPC WebAPI."""
 
-    def __init__(self, base_url="https://192.168.10.61/api/jsonrpc", 
-                 username="5AHIT", password="5ahiT"):
-        self.base_url = base_url
-        self.username = username
-        self.password = password
+    def __init__(self, base_url=None, username=None, password=None):
+        if base_url is None:
+            ip = os.getenv("IP", "192.168.106.62")
+            self.base_url = f"https://{ip}/api/jsonrpc"
+        else:
+            self.base_url = base_url
+        self.username = username or os.getenv("WEBAPI_USER", "5AHIT")
+        self.password = password or os.getenv("WEBAPI_PASSWORD", "5ahiT2025")
         self.token = None
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -26,7 +33,24 @@ class SpsWebApiAdapter(ProtocolAdapter):
         headers = {'Content-Type': 'application/json'}
         response = requests.post(self.base_url, json=payload, headers=headers, verify=False, timeout=10)
         response.raise_for_status()
-        self.token = response.json()[0]['result']['token']
+        
+        json_response = response.json()
+        
+        # Handle both array and object responses
+        if isinstance(json_response, list) and len(json_response) > 0:
+            result_obj = json_response[0]
+        else:
+            result_obj = json_response
+        
+        # Check for error in response
+        if 'error' in result_obj:
+            error = result_obj['error']
+            raise Exception(f"Login failed: {error.get('message', error)}")
+        
+        if 'result' not in result_obj:
+            raise Exception(f"Unexpected response format: {json_response}")
+        
+        self.token = result_obj['result']['token']
         print(f"✓ WebAPI connected (token: {self.token[:20]}...)")
 
     def disconnect(self) -> None:

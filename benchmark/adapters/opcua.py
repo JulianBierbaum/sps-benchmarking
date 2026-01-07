@@ -1,13 +1,21 @@
 from opcua import Client, ua
 import time
+import os
+from dotenv import load_dotenv
 from typing import Dict, List, Tuple, Any
 from .base import ProtocolAdapter
+
+load_dotenv()
 
 class OpcUaAdapter(ProtocolAdapter):
     """Implements the SPS communication via OPC UA protocol."""
 
-    def __init__(self, server_url="opc.tcp://192.168.10.61:4840"):
-        self.server_url = server_url
+    def __init__(self, server_url=None):
+        if server_url is None:
+            ip = os.getenv("IP", "192.168.106.62")
+            self.server_url = f"opc.tcp://{ip}:4840"
+        else:
+            self.server_url = server_url
         self.client = None
 
     def connect(self) -> None:
