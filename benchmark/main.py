@@ -1,5 +1,6 @@
 from adapters.webapi import SpsWebApiAdapter
 from adapters.opcua import OpcUaAdapter
+from adapters.s7 import S7Adapter
 from benchmark_runner import BenchmarkRunner
 from datetime import datetime
 import os
@@ -153,15 +154,34 @@ def main():
     opcua_adapter = OpcUaAdapter()
     opcua_results = run_benchmark_for_adapter("OPC UA", opcua_adapter, output_dir)
     
+    print("\n" + "="*60)
+    print("Pausing 2 seconds between protocols...")
+    print("="*60)
+    time.sleep(2)
+    
+    # Benchmark S7
+    s7_adapter = S7Adapter()
+    s7_results = run_benchmark_for_adapter("S7", s7_adapter, output_dir)
+    
     # Generate comparison report
-    if webapi_results and opcua_results:
-        generate_comparison_report(webapi_results, opcua_results, output_dir)
+    all_results = [
+        ("WebAPI", webapi_results),
+        ("OPC UA", opcua_results),
+        ("S7", s7_results)
+    ]
+    # Filter out failed benchmarks
+    valid_results = [(name, results) for name, results in all_results if results]
+    
+    if len(valid_results) >= 2:
+        # Compare first two valid protocols for backward compatibility
+        generate_comparison_report(valid_results[0][1], valid_results[1][1], output_dir)
     
     print("\n" + "="*60)
     print("✓ All benchmarks completed!")
     print(f"✓ Results saved in '{output_dir}/' directory")
     print("  - webapi/")
     print("  - opcua/")
+    print("  - s7/")
     print("  - protocol_comparison.txt")
     print("="*60)
 
