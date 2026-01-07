@@ -1,0 +1,63 @@
+% 								Laborbericht - Vorlage für Elektrotechnik
+%                   					      2023 HTL Weiz
+%----------------------------------------------------------------------------------------------------
+% Dieses \LaTeX Template kann als Grundlage für die Erstellung von Laborberichten verwendet werden.
+% In diesem File werden sämtliche Einstellungen, sowie die einzelnen Inhalte miteinander verknüpft.
+%----------------------------------------------------------------------------------------------------
+
+%****************************************************************************************************
+%=========================== D O K U M E N T  I N F O R M A T I O N E N =============================
+%****************************************************************************************************
+% Hier werden einheitliche Infromationen für das Dokument festgelegt. (selbst ausfüllen)
+
+\newcommand{\iYear}{2025/26}																			% Jahrgang
+\newcommand{\iDate}{15.10.2025}																			% Übungsdatum
+\newcommand{\iLUName}{Zwischenbericht Performacevergleich Kommunikationsprotokolle}																% Übungsname
+\newcommand{\iClass}{5AHIT}																				% Klasse
+\newcommand{\iGroup}{1}																					% Gruppennummer
+\newcommand{\iNameOne}{Marco Allmer}																% Schüler 1
+\newcommand{\iNameTwo}{Julian Bierbaum}																% Schüler 2
+\newcommand{\iNameThree}{Alexander Herbst}															% Schüler 3
+\newcommand{\iNameFour}{Vorname Nachname 4}																% Schüler 4
+\newcommand{\iCoach}{Dipl.-Ing. (FH) Helmut Quinz}															% Lehrperson
+
+%****************************************************************************************************
+%=========================== D O K U M E N T  E I N S T E L L U N G E N =============================
+%****************************************************************************************************
+% Hier werden die Textart, das Papier, die Schriftgröße und alle Pakete definiert.
+
+\documentclass[12pt, a4paper, ngerman] {scrartcl}														% Papierformat
+\input{./../00_LatexDEF/DefPackages.tex}																% Packete
+
+%****************************************************************************************************
+%==================================== D E S I G N K O N Z E P T =====================================
+%****************************************************************************************************
+% Hier wird das grundsätzliche Aussehen des Dokuments festgelegt.
+
+\input{./../00_LatexDEF/DefStyle.tex}
+
+%****************************************************************************************************
+%==================================== D O K U M E N T A T I O N =====================================
+%****************************************************************************************************
+% Hier beginnt die eigentliche Dokumentation der Laborübung.
+
+\begin{document}
+%===================================== I N T R O D U C T I O N ======================================
+% Hier wird die Einleitung des Dokuments abgehandelt und strukturiert. (selbst ausfüllen)
+
+\input{./../02_Introduction/Introduction.tex}
+
+\newpage
+
+%========================================== I N H A L T E ===========================================
+% Hier wird die Aufgabenstellung implementiert. (selbst ausfüllen)
+
+\input{./../05_Inhalte/Inhalt.tex}
+
+%====================================== G E R Ä T E L I S T E =======================================
+% Hier wird die Geräteliste in das Dokument integriert. (selbst ausfüllen)
+
+\input{./../05_Inhalte/Geräteliste.tex}
+
+\end{document}
+
