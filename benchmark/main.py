@@ -1,6 +1,7 @@
 from adapters.webapi import SpsWebApiAdapter
 from adapters.opcua import OpcUaAdapter
 from benchmark_runner import BenchmarkRunner
+from datetime import datetime
 import os
 
 def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
@@ -135,7 +136,7 @@ def main():
     print("="*60)
     print("Testing: WebAPI and OPC UA\n")
     
-    output_dir = "results"
+    output_dir = "results_" + datetime.now().strftime("%Y%m%d_%H%M%S") 
     os.makedirs(output_dir, exist_ok=True)
     
     # Benchmark WebAPI
