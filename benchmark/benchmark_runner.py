@@ -33,7 +33,11 @@ class BenchmarkRunner:
         self.results = []
 
     def benchmark_single_writes(
-        self, target_ops_per_sec: int, duration_seconds: int = 10
+        self,
+        target_ops_per_sec: int,
+        duration_seconds: int = 5,
+        var_name: str = '"PerformaceData".ToServer.bool00',
+        data_type: str = "bool",
     ) -> BenchmarkResult:
         """
         Benchmark individual write operations at specified rate
@@ -41,10 +45,12 @@ class BenchmarkRunner:
         Args:
             target_ops_per_sec: Target operations per second
             duration_seconds: How long to run the test
+            var_name: Variable to write to
+            data_type: Type of data ("bool", "int16", "int32")
         """
         print(f"\n{'=' * 60}")
         print(
-            f"Single Write Benchmark: {target_ops_per_sec} ops/s for {duration_seconds}s"
+            f"Single Write Benchmark ({data_type}): {target_ops_per_sec} ops/s for {duration_seconds}s"
         )
         print(f"{'=' * 60}")
 
@@ -62,12 +68,20 @@ class BenchmarkRunner:
                 if current_time < next_op_time:
                     time.sleep(next_op_time - current_time)
 
-                # Perform write operation (toggle a boolean value)
-                value = operations % 2 == 0  # Alternate True/False
+                # Generate value based on type
+                if data_type == "bool":
+                    value = operations % 2 == 0  # Alternate True/False
+                elif data_type == "int16":
+                    # Toggle between 0 and 1000, or increment
+                    value = (operations % 1000)
+                elif data_type == "int32":
+                    # Toggle between large values
+                    value = (operations * 1000) % 1000000
+                else:
+                    value = operations
+
                 try:
-                    _, latency = self.api.write(
-                        '"PerformaceData".ToServer.bool00', value
-                    )
+                    _, latency = self.api.write(var_name, value)
                     latencies.append(latency)
                     operations += 1
                 except Exception as e:
@@ -91,7 +105,7 @@ class BenchmarkRunner:
             p50 = p90 = p99 = actual_ops = 0
 
         result = BenchmarkResult(
-            test_name=f"Single_Write_{target_ops_per_sec}ops",
+            test_name=f"Write_{data_type}_{target_ops_per_sec}ops",
             total_operations=operations,
             duration_seconds=total_duration,
             ops_per_second=actual_ops,

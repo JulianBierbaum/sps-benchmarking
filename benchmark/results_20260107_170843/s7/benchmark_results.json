@@ -1,0 +1,112 @@
+[
+  {
+    "test_name": "Write_bool_1ops",
+    "total_operations": 6,
+    "duration_seconds": 5.017466306686401,
+    "ops_per_second": 1.1958226788696618,
+    "latency_p50_ms": 10.48743724822998,
+    "latency_p90_ms": 17.360925674438477,
+    "latency_p99_ms": 17.360925674438477,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:31.865940"
+  },
+  {
+    "test_name": "Write_bool_10ops",
+    "total_operations": 51,
+    "duration_seconds": 5.006790637969971,
+    "ops_per_second": 10.18616588703182,
+    "latency_p50_ms": 8.000373840332031,
+    "latency_p90_ms": 10.005950927734375,
+    "latency_p99_ms": 45.32766342163086,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:36.872941"
+  },
+  {
+    "test_name": "Write_bool_20ops",
+    "total_operations": 101,
+    "duration_seconds": 5.007884979248047,
+    "ops_per_second": 20.16819484044251,
+    "latency_p50_ms": 7.86280632019043,
+    "latency_p90_ms": 10.017633438110352,
+    "latency_p99_ms": 12.299776077270508,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:41.880978"
+  },
+  {
+    "test_name": "Write_int16_1ops",
+    "total_operations": 6,
+    "duration_seconds": 5.004626750946045,
+    "ops_per_second": 1.1988906063505727,
+    "latency_p50_ms": 5.564570426940918,
+    "latency_p90_ms": 53.80439758300781,
+    "latency_p99_ms": 53.80439758300781,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:46.885791"
+  },
+  {
+    "test_name": "Write_int16_10ops",
+    "total_operations": 51,
+    "duration_seconds": 5.007016897201538,
+    "ops_per_second": 10.185705590189702,
+    "latency_p50_ms": 4.5032501220703125,
+    "latency_p90_ms": 4.848957061767578,
+    "latency_p99_ms": 7.701635360717773,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:51.893004"
+  },
+  {
+    "test_name": "Write_int16_20ops",
+    "total_operations": 101,
+    "duration_seconds": 5.004681348800659,
+    "ops_per_second": 20.181105041623482,
+    "latency_p50_ms": 4.535913467407227,
+    "latency_p90_ms": 5.673408508300781,
+    "latency_p99_ms": 8.017301559448242,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:10:56.897923"
+  },
+  {
+    "test_name": "Write_int32_1ops",
+    "total_operations": 6,
+    "duration_seconds": 5.003604173660278,
+    "ops_per_second": 1.1991356213956528,
+    "latency_p50_ms": 6.223201751708984,
+    "latency_p90_ms": 99.90596771240234,
+    "latency_p99_ms": 99.90596771240234,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:11:01.901694"
+  },
+  {
+    "test_name": "Write_int32_10ops",
+    "total_operations": 51,
+    "duration_seconds": 5.004780054092407,
+    "ops_per_second": 10.190258003105914,
+    "latency_p50_ms": 4.562139511108398,
+    "latency_p90_ms": 5.646467208862305,
+    "latency_p99_ms": 6.865739822387695,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:11:06.906709"
+  },
+  {
+    "test_name": "Write_int32_20ops",
+    "total_operations": 101,
+    "duration_seconds": 5.007994174957275,
+    "ops_per_second": 20.16775508746706,
+    "latency_p50_ms": 4.580974578857422,
+    "latency_p90_ms": 7.969141006469727,
+    "latency_p99_ms": 11.018753051757812,
+    "throughput_kbps": 0.0,
+    "timestamp": "2026-01-07T17:11:11.914974"
+  },
+  {
+    "test_name": "Bulk_Write_100_elements",
+    "total_operations": 10,
+    "duration_seconds": 0.09841036796569824,
+    "ops_per_second": 101.61530951175372,
+    "latency_p50_ms": 9.086966514587402,
+    "latency_p90_ms": 16.37554168701172,
+    "latency_p99_ms": 16.37554168701172,
+    "throughput_kbps": 167.10955197050123,
+    "timestamp": "2026-01-07T17:11:12.013765"
+  }
+]

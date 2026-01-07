@@ -47,7 +47,11 @@ class OpcUaAdapter(ProtocolAdapter):
         node = self._get_node(var)
 
         # Determine variant type based on value type
-        if isinstance(value, bool):
+        if "int16" in var.lower():
+            variant_type = ua.VariantType.Int16
+        elif "int32" in var.lower():
+            variant_type = ua.VariantType.Int32
+        elif isinstance(value, bool):
             variant_type = ua.VariantType.Boolean
         elif isinstance(value, int):
             # Default to Int32 for integers

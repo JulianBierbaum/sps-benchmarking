@@ -1,0 +1,94 @@
+SPS API BENCHMARK REPORT
+============================================================
+
+Test: Write_bool_1ops
+  Operations:   6
+  Duration:     5.01 s
+  Ops/sec:      1.20
+  Latency P50:  11.89 ms
+  Latency P90:  12.59 ms
+  Latency P99:  12.59 ms
+  Timestamp:    2026-01-07T17:09:42.355842
+------------------------------------------------------------
+Test: Write_bool_10ops
+  Operations:   51
+  Duration:     5.01 s
+  Ops/sec:      10.18
+  Latency P50:  9.09 ms
+  Latency P90:  10.12 ms
+  Latency P99:  57.23 ms
+  Timestamp:    2026-01-07T17:09:47.365880
+------------------------------------------------------------
+Test: Write_bool_20ops
+  Operations:   101
+  Duration:     5.01 s
+  Ops/sec:      20.17
+  Latency P50:  9.46 ms
+  Latency P90:  10.52 ms
+  Latency P99:  11.24 ms
+  Timestamp:    2026-01-07T17:09:52.374171
+------------------------------------------------------------
+Test: Write_int16_1ops
+  Operations:   6
+  Duration:     5.01 s
+  Ops/sec:      1.20
+  Latency P50:  11.75 ms
+  Latency P90:  13.01 ms
+  Latency P99:  13.01 ms
+  Timestamp:    2026-01-07T17:09:57.387573
+------------------------------------------------------------
+Test: Write_int16_10ops
+  Operations:   51
+  Duration:     5.01 s
+  Ops/sec:      10.17
+  Latency P50:  9.66 ms
+  Latency P90:  11.38 ms
+  Latency P99:  12.75 ms
+  Timestamp:    2026-01-07T17:10:02.400236
+------------------------------------------------------------
+Test: Write_int16_20ops
+  Operations:   101
+  Duration:     5.01 s
+  Ops/sec:      20.16
+  Latency P50:  9.48 ms
+  Latency P90:  11.52 ms
+  Latency P99:  16.50 ms
+  Timestamp:    2026-01-07T17:10:07.410706
+------------------------------------------------------------
+Test: Write_int32_1ops
+  Operations:   6
+  Duration:     5.01 s
+  Ops/sec:      1.20
+  Latency P50:  10.84 ms
+  Latency P90:  74.42 ms
+  Latency P99:  74.42 ms
+  Timestamp:    2026-01-07T17:10:12.420807
+------------------------------------------------------------
+Test: Write_int32_10ops
+  Operations:   51
+  Duration:     5.01 s
+  Ops/sec:      10.18
+  Latency P50:  9.73 ms
+  Latency P90:  11.02 ms
+  Latency P99:  17.95 ms
+  Timestamp:    2026-01-07T17:10:17.432228
+------------------------------------------------------------
+Test: Write_int32_20ops
+  Operations:   101
+  Duration:     5.01 s
+  Ops/sec:      20.16
+  Latency P50:  9.38 ms
+  Latency P90:  10.69 ms
+  Latency P99:  12.46 ms
+  Timestamp:    2026-01-07T17:10:22.441628
+------------------------------------------------------------
+Test: Bulk_Write_100_elements
+  Operations:   10
+  Duration:     1.88 s
+  Ops/sec:      5.31
+  Latency P50:  198.08 ms
+  Latency P90:  236.84 ms
+  Latency P99:  236.84 ms
+  Throughput:   8.74 kB/s
+  Timestamp:    2026-01-07T17:10:24.324455
+------------------------------------------------------------

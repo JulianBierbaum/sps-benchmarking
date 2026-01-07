@@ -24,6 +24,8 @@ class S7Adapter(ProtocolAdapter):
 
         # Offsets within the DB (configure in .env based on your PLC data block layout)
         self.bool_offset = int(os.getenv("S7_BOOL_OFFSET", "0"))
+        self.int16_offset = int(os.getenv("S7_INT16_OFFSET", "2"))  # int16_01
+        self.int32_offset = int(os.getenv("S7_INT32_OFFSET", "12")) # int32_01
         self.bulk_offset = int(os.getenv("S7_BULK_OFFSET", "136"))
         self.bulk_element_size = int(os.getenv("S7_BULK_ELEMENT_SIZE", "8"))
 
@@ -48,12 +50,22 @@ class S7Adapter(ProtocolAdapter):
         start = time.time()
 
         # Parse the variable path and determine offset/type
-        if "bool00" in var.lower():
+        if "bool" in var.lower():
             # Write boolean to DB
             # Read the byte first, modify the bit, then write back
             data = self.client.db_read(self.db_number, self.bool_offset, 1)
             set_bool(data, 0, 0, value)
             self.client.db_write(self.db_number, self.bool_offset, data)
+        elif "int16" in var.lower():
+            # Write 16-bit integer
+            data = bytearray(2)
+            struct.pack_into(">h", data, 0, value)
+            self.client.db_write(self.db_number, self.int16_offset, data)
+        elif "int32" in var.lower():
+            # Write 32-bit integer
+            data = bytearray(4)
+            struct.pack_into(">i", data, 0, value)
+            self.client.db_write(self.db_number, self.int32_offset, data)
         elif isinstance(value, bool):
             # Generic boolean write
             data = bytearray(1)
