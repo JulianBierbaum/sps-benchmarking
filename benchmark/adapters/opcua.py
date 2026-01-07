@@ -87,7 +87,7 @@ class OpcUaAdapter(ProtocolAdapter):
         # Pre-calculate nodes and values for single-request bulk write
         nodes = []
         datavalues = []
-        
+
         for i, value in enumerate(array_data):
             node_id = f'ns=3;s="PerformaceData".BulkData[{i}]'
             nodes.append(self.client.get_node(node_id))
@@ -103,7 +103,9 @@ class OpcUaAdapter(ProtocolAdapter):
                 numeric_value = value
 
             # LTime is represented as Int64 in OPC UA
-            datavalues.append(ua.DataValue(ua.Variant(numeric_value, ua.VariantType.Int64)))
+            datavalues.append(
+                ua.DataValue(ua.Variant(numeric_value, ua.VariantType.Int64))
+            )
 
         # Perform the actual write in a single network request
         start = time.time()
