@@ -65,6 +65,26 @@ class ProtocolAdapter(ABC):
         pass
 ```
 
+## Erzeugen der Bulk-Daten
+
+Es wird ein Array mit 100 Einträgen im Siemens-LTime-Format erzeugt
+
+```py
+bulk_data = [f"LT#{i * 1000000}ns" for i in range(100)]
+
+```
+
+Die erzeugten Werte haben folgendes Format:
+```
+LT#0ns
+LT#1000000ns
+LT#2000000ns
+LT#3000000ns
+LT#4000000ns
+...
+```
+
+
 ## Datenübertragungssicherheit
 
 Da alle Protokolle auf dem TCP-Transportprotokoll basieren, gehen wie bei einer Success Response davon aus, dass die Daten vollständig und korrekt übertragen wurden. Wir überprüfen aber nicht ob die Werte explizit in den Spicher geschrieben worden sind.
