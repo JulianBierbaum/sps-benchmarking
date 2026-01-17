@@ -3,9 +3,17 @@ from adapters.opcua import OpcUaAdapter
 from adapters.s7 import S7Adapter
 from benchmark_runner import BenchmarkRunner
 from datetime import datetime
+from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+
+load_dotenv()
+
+# Benchmark configuration from environment
+BENCHMARK_DURATION = int(os.getenv("BENCHMARK_DURATION_SECONDS", "5"))
+BENCHMARK_RATES = [int(r) for r in os.getenv("BENCHMARK_TARGET_RATES", "1,10,20").split(",")]
+BENCHMARK_BULK_REPS = int(os.getenv("BENCHMARK_BULK_REPETITIONS", "10"))
 
 
 def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
@@ -21,13 +29,13 @@ def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
         # Test 1: Single writes
         print("\nStarting Single Write Benchmarks...")
 
-        target_rates = [1, 10, 20]
+        target_rates = BENCHMARK_RATES
 
         # Bool
         for rate in target_rates:
             runner.benchmark_single_writes(
                 target_ops_per_sec=rate,
-                duration_seconds=5,
+                duration_seconds=BENCHMARK_DURATION,
                 var_name='"PerformaceData".ToServer.bool00',
                 data_type="bool",
             )
@@ -36,7 +44,7 @@ def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
         for rate in target_rates:
             runner.benchmark_single_writes(
                 target_ops_per_sec=rate,
-                duration_seconds=5,
+                duration_seconds=BENCHMARK_DURATION,
                 var_name='"PerformaceData".ToServer.int16_01',
                 data_type="int16",
             )
@@ -45,14 +53,14 @@ def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
         for rate in target_rates:
             runner.benchmark_single_writes(
                 target_ops_per_sec=rate,
-                duration_seconds=5,
+                duration_seconds=BENCHMARK_DURATION,
                 var_name='"PerformaceData".ToServer.int32_01',
                 data_type="int32",
             )
 
         # Test 2: Bulk writes
         print("\nStarting Bulk Write Benchmark...")
-        runner.benchmark_bulk_writes(repetitions=10)
+        runner.benchmark_bulk_writes(repetitions=BENCHMARK_BULK_REPS)
 
         # Summary & Reports
         runner.print_summary()
