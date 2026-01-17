@@ -21,11 +21,6 @@ class ProtocolAdapter(ABC):
         pass
 
     @abstractmethod
-    def read(self, var: str) -> Tuple[Dict, float]:
-        """Read a single value, return response and latency in ms."""
-        pass
-
-    @abstractmethod
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
         """Write an entire array of bulk data."""
         pass

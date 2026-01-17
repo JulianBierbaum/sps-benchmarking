@@ -69,20 +69,6 @@ class OpcUaAdapter(ProtocolAdapter):
         response = {"success": True, "node": var, "value": value}
         return response, latency
 
-    def read(self, var: str) -> Tuple[Dict, float]:
-        """Read a single value, return response and latency in ms."""
-        if not self.client:
-            raise Exception("Not connected to OPC UA server")
-
-        node = self._get_node(var)
-
-        start = time.time()
-        value = node.get_value()
-        latency = (time.time() - start) * 1000
-
-        response = {"success": True, "node": var, "value": value}
-        return response, latency
-
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
         """Write an entire array of bulk data."""
         if not self.client:

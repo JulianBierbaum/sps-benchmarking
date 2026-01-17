@@ -73,7 +73,7 @@ class BenchmarkRunner:
                     value = operations % 2 == 0  # Alternate True/False
                 elif data_type == "int16":
                     # Toggle between 0 and 1000, or increment
-                    value = (operations % 1000)
+                    value = operations % 1000
                 elif data_type == "int32":
                     # Toggle between large values
                     value = (operations * 1000) % 1000000
@@ -98,8 +98,10 @@ class BenchmarkRunner:
         if latencies:
             latencies.sort()
             p50 = statistics.median(latencies)
-            p90 = latencies[int(len(latencies) * 0.90)]
-            p99 = latencies[int(len(latencies) * 0.99)]
+            p90_idx = min(int(len(latencies) * 0.90), len(latencies) - 1)
+            p99_idx = min(int(len(latencies) * 0.99), len(latencies) - 1)
+            p90 = latencies[p90_idx]
+            p99 = latencies[p99_idx]
             actual_ops = operations / total_duration
         else:
             p50 = p90 = p99 = actual_ops = 0

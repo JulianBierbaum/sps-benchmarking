@@ -1,5 +1,5 @@
 import snap7
-from snap7.util import set_bool, get_bool
+from snap7.util import set_bool
 import time
 import os
 import struct
@@ -19,13 +19,13 @@ class S7Adapter(ProtocolAdapter):
         self.slot = slot if slot is not None else int(os.getenv("S7_SLOT", "1"))
         self.client = None
 
-        # DB number for PerformaceData (configure in .env or via constructor)
+        # DB number for PerformanceData (configure in .env or via constructor)
         self.db_number = int(os.getenv("S7_DB_NUMBER", "7"))
 
         # Offsets within the DB (configure in .env based on your PLC data block layout)
         self.bool_offset = int(os.getenv("S7_BOOL_OFFSET", "0"))
         self.int16_offset = int(os.getenv("S7_INT16_OFFSET", "2"))  # int16_01
-        self.int32_offset = int(os.getenv("S7_INT32_OFFSET", "12")) # int32_01
+        self.int32_offset = int(os.getenv("S7_INT32_OFFSET", "12"))  # int32_01
         self.bulk_offset = int(os.getenv("S7_BULK_OFFSET", "136"))
         self.bulk_element_size = int(os.getenv("S7_BULK_ELEMENT_SIZE", "8"))
 
@@ -83,27 +83,6 @@ class S7Adapter(ProtocolAdapter):
             self.client.db_write(self.db_number, self.bool_offset, data)
         else:
             raise Exception(f"Unsupported value type: {type(value)}")
-
-        latency = (time.time() - start) * 1000
-
-        response = {"success": True, "var": var, "value": value}
-        return response, latency
-
-    def read(self, var: str) -> Tuple[Dict, float]:
-        """Read a single value, return response and latency in ms."""
-        if not self.client:
-            raise Exception("Not connected to S7 PLC")
-
-        start = time.time()
-
-        # Parse the variable path and determine offset/type
-        if "bool00" in var.lower():
-            data = self.client.db_read(self.db_number, self.bool_offset, 1)
-            value = get_bool(data, 0, 0)
-        else:
-            # Default to reading a boolean
-            data = self.client.db_read(self.db_number, self.bool_offset, 1)
-            value = get_bool(data, 0, 0)
 
         latency = (time.time() - start) * 1000
 

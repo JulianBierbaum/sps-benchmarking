@@ -97,26 +97,6 @@ class SpsWebApiAdapter(ProtocolAdapter):
         latency = (time.time() - start) * 1000
         return response.json(), latency
 
-    def read(self, var: str) -> Tuple[Dict, float]:
-        payload = [
-            {
-                "jsonrpc": "2.0",
-                "method": "PlcProgram.Read",
-                "id": 1,
-                "params": {"var": var},
-            }
-        ]
-        start = time.time()
-        response = requests.post(
-            self.base_url,
-            json=payload,
-            headers=self._headers(),
-            verify=False,
-            timeout=10,
-        )
-        latency = (time.time() - start) * 1000
-        return response.json(), latency
-
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
         payload = [
             {

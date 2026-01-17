@@ -20,34 +20,34 @@ def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
 
         # Test 1: Single writes
         print("\nStarting Single Write Benchmarks...")
-        
+
         target_rates = [1, 10, 20]
-        
+
         # Bool
         for rate in target_rates:
             runner.benchmark_single_writes(
-                target_ops_per_sec=rate, 
-                duration_seconds=5, 
-                var_name='"PerformaceData".ToServer.bool00', 
-                data_type="bool"
+                target_ops_per_sec=rate,
+                duration_seconds=5,
+                var_name='"PerformaceData".ToServer.bool00',
+                data_type="bool",
             )
-        
+
         # Int16
         for rate in target_rates:
             runner.benchmark_single_writes(
-                target_ops_per_sec=rate, 
-                duration_seconds=5, 
-                var_name='"PerformaceData".ToServer.int16_01', 
-                data_type="int16"
+                target_ops_per_sec=rate,
+                duration_seconds=5,
+                var_name='"PerformaceData".ToServer.int16_01',
+                data_type="int16",
             )
-        
+
         # Int32
         for rate in target_rates:
             runner.benchmark_single_writes(
-                target_ops_per_sec=rate, 
-                duration_seconds=5, 
-                var_name='"PerformaceData".ToServer.int32_01', 
-                data_type="int32"
+                target_ops_per_sec=rate,
+                duration_seconds=5,
+                var_name='"PerformaceData".ToServer.int32_01',
+                data_type="int32",
             )
 
         # Test 2: Bulk writes
