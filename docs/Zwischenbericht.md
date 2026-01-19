@@ -38,7 +38,7 @@ Alle Verbindungsparameter werden über ein `.env`-File konfiguriert (siehe `.env
 
 ### Adapter-Pattern
 
-Das Adapter-Pattern ermöglicht es, die Benchmark-Logik von den protokollspezifischen Details zu trennen. Dadurch können alle drei Protokolle mit identischen Testfällen verglichen werden, ohne den Testcode zu duplizieren.
+Das Adapter-Pattern ermöglicht es, die Benchmark-Logik von den protokollspezifischen Details zu trennen. Dadurch können alle drei Protokolle mit identischen Testfällen verglichen werden, ohne den Testcode zu duplizieren. Dies führt auch zu einer guten Erweiterbarkeit falls neue Adapter hinzugefügt werden sollten.
 
 Für jedes Protokoll wurde ein Adapter implementiert, der eine gemeinsame abstrakte Basisklasse implementiert:
 
