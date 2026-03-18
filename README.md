@@ -16,6 +16,23 @@ The suite measures latency and throughput for three different communication prot
 - **Single Writes:** Repeatedly writing individual variables (Bool, Int16, Int32) at configurable rates (e.g., 20 Ops/s).
 - **Bulk Writes:** Transferring a data block of approximately 1 kB (100 × LTime values).
 
+### Benchmark Configuration
+The execution frequency is defined as follows for each protocol:
+
+1. **Single Writes:**
+   - **3 Data Types:** `Bool`, `Int16`, and `Int32`.
+   - **3 Target Rates:** Standardly 1, 10, and 20 operations per second (Ops/s).
+   - **Duration:** Each individual test run lasts **5 seconds**.
+   - *Total:* 9 separate test runs per protocol.
+
+2. **Bulk Writes:**
+   - **10 Repetitions:** The entire data block (100 elements) is written 10 times consecutively to calculate stable latency statistics (P50, P90, P99).
+
+These values can be customized in the `.env` file using the following variables:
+- `BENCHMARK_DURATION_SECONDS`
+- `BENCHMARK_TARGET_RATES`
+- `BENCHMARK_BULK_REPETITIONS`
+
 ---
 
 ## Prerequisites

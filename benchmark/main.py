@@ -17,7 +17,17 @@ BENCHMARK_BULK_REPS = int(os.getenv("BENCHMARK_BULK_REPETITIONS", "10"))
 
 
 def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
-    """Run benchmarks for a single adapter and save results"""
+    """
+    Runs benchmarks for a single adapter and saves results.
+
+    Args:
+        adapter_name (str): Name of protocol adapter.
+        adapter (object): Adapter instance.
+        output_dir (str): Directory path to save results.
+
+    Returns:
+        list: Collection of benchmark results or None if failed.
+    """
     print(f"\n{'=' * 60}")
     print(f"BENCHMARKING: {adapter_name}")
     print(f"{'=' * 60}")
@@ -88,11 +98,12 @@ def run_benchmark_for_adapter(adapter_name: str, adapter, output_dir: str):
 
 
 def generate_comparison_plots(all_results: list, output_dir: str):
-    """Generate combined comparison plots for all protocols.
+    """
+    Generates combined comparison plots for all protocols.
 
     Args:
-        all_results: List of tuples (protocol_name, results_list)
-        output_dir: Directory to save the plots
+        all_results (list): List of tuples (protocol_name, results_list).
+        output_dir (str): Directory path to save plots.
     """
     # Filter out protocols with no results
     valid_results = [(name, results) for name, results in all_results if results]
@@ -198,11 +209,12 @@ def generate_comparison_plots(all_results: list, output_dir: str):
 
 
 def generate_comparison_report(all_results: list, output_dir: str):
-    """Generate a comparison report between all protocols.
+    """
+    Generates comparison report between all protocols.
 
     Args:
-        all_results: List of tuples (protocol_name, results_list)
-        output_dir: Directory to save the report
+        all_results (list): List of tuples (protocol_name, results_list).
+        output_dir (str): Directory path to save report.
     """
     # Filter out protocols with no results
     valid_results = [(name, results) for name, results in all_results if results]
@@ -335,7 +347,9 @@ def generate_comparison_report(all_results: list, output_dir: str):
 
 
 def main():
-    """Main benchmark execution for multiple protocols"""
+    """
+    Executes main benchmark suite for multiple protocols.
+    """
     print("SPS Multi-Protocol Benchmark Tool")
     print("=" * 60)
     print("Testing: WebAPI, OPC UA, and S7\n")

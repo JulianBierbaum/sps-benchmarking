@@ -9,9 +9,17 @@ load_dotenv()
 
 
 class OpcUaAdapter(ProtocolAdapter):
-    """Implements the SPS communication via OPC UA protocol."""
+    """
+    Implements SPS communication via OPC UA protocol.
+    """
 
     def __init__(self, server_url=None):
+        """
+        Initializes OPC UA adapter with server URL.
+
+        Args:
+            server_url (str): OPC UA server endpoint URL.
+        """
         if server_url is None:
             ip = os.getenv("IP", "192.168.106.62")
             self.server_url = f"opc.tcp://{ip}:4840"
@@ -20,27 +28,57 @@ class OpcUaAdapter(ProtocolAdapter):
         self.client = None
 
     def connect(self) -> None:
-        """Establish connection to OPC UA server"""
+        """
+        Establishes connection to OPC UA server.
+
+        Raises:
+            Exception: Connection failure.
+        """
         self.client = Client(self.server_url)
         self.client.connect()
         print(f"✓ OPC UA connected to {self.server_url}")
 
     def disconnect(self) -> None:
-        """Close connection to OPC UA server"""
+        """
+        Closes connection to OPC UA server.
+
+        Raises:
+            Exception: Disconnection failure.
+        """
         if self.client:
             self.client.disconnect()
             self.client = None
             print("✓ OPC UA disconnected")
 
     def _get_node(self, var: str):
-        """Helper to get OPC UA node from variable path"""
+        """
+        Retrieves OPC UA node from variable path.
+
+        Args:
+            var (str): Variable identifier or path.
+
+        Returns:
+            Node: OPC UA node object.
+        """
         # Convert variable path to OPC UA node ID
         # Format: "PerformaceData".ToServer.bool00 -> ns=3;s="PerformaceData".ToServer.bool00
         node_id = f"ns=3;s={var}"
         return self.client.get_node(node_id)
 
     def write(self, var: str, value: Any) -> Tuple[Dict, float]:
-        """Write a single value, return response and latency in ms."""
+        """
+        Writes single value and returns response with latency.
+
+        Args:
+            var (str): Variable identifier or address.
+            value (Any): Value to be written.
+
+        Raises:
+            Exception: Write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         if not self.client:
             raise Exception("Not connected to OPC UA server")
 
@@ -70,7 +108,18 @@ class OpcUaAdapter(ProtocolAdapter):
         return response, latency
 
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
-        """Write an entire array of bulk data."""
+        """
+        Writes entire array of bulk data.
+
+        Args:
+            array_data (List[Any]): List of data elements to write.
+
+        Raises:
+            Exception: Bulk write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         if not self.client:
             raise Exception("Not connected to OPC UA server")
 

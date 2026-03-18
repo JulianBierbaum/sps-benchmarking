@@ -10,9 +10,19 @@ load_dotenv()
 
 
 class SpsWebApiAdapter(ProtocolAdapter):
-    """Implements the SPS communication via HTTP JSON-RPC WebAPI."""
+    """
+    Implements SPS communication via HTTP JSON-RPC WebAPI.
+    """
 
     def __init__(self, base_url=None, username=None, password=None):
+        """
+        Initializes WebAPI adapter with connection parameters.
+
+        Args:
+            base_url (str): Base URL of WebAPI.
+            username (str): Username for authentication.
+            password (str): Password for authentication.
+        """
         if base_url is None:
             ip = os.getenv("IP", "192.168.106.62")
             self.base_url = f"https://{ip}/api/jsonrpc"
@@ -24,7 +34,12 @@ class SpsWebApiAdapter(ProtocolAdapter):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     def connect(self) -> None:
-        """Login and store authentication token"""
+        """
+        Logins and stores authentication token.
+
+        Raises:
+            Exception: Login failure or unexpected response format.
+        """
         payload = [
             {
                 "id": 0,
@@ -59,7 +74,12 @@ class SpsWebApiAdapter(ProtocolAdapter):
         print(f"✓ WebAPI connected (token: {self.token[:20]}...)")
 
     def disconnect(self) -> None:
-        """Logout and clear token"""
+        """
+        Logouts and clears authentication token.
+
+        Raises:
+            Exception: Logout operation failure.
+        """
         if not self.token:
             return
         payload = [{"jsonrpc": "2.0", "method": "Api.Logout", "id": 0}]
@@ -73,11 +93,33 @@ class SpsWebApiAdapter(ProtocolAdapter):
             print("✓ WebAPI disconnected")
 
     def _headers(self) -> Dict[str, str]:
+        """
+        Retrieves HTTP headers for WebAPI requests.
+
+        Raises:
+            Exception: If not connected (missing token).
+
+        Returns:
+            Dict[str, str]: HTTP headers including auth token.
+        """
         if not self.token:
             raise Exception("Not connected (missing token)")
         return {"X-Auth-Token": self.token, "Content-Type": "application/json"}
 
     def write(self, var: str, value: Any) -> Tuple[Dict, float]:
+        """
+        Writes single value and returns response with latency.
+
+        Args:
+            var (str): Variable identifier or address.
+            value (Any): Value to be written.
+
+        Raises:
+            Exception: Write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         payload = [
             {
                 "jsonrpc": "2.0",
@@ -98,6 +140,18 @@ class SpsWebApiAdapter(ProtocolAdapter):
         return response.json(), latency
 
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
+        """
+        Writes entire array of bulk data.
+
+        Args:
+            array_data (List[Any]): List of data elements to write.
+
+        Raises:
+            Exception: Bulk write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         payload = [
             {
                 "jsonrpc": "2.0",

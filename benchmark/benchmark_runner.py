@@ -10,7 +10,9 @@ import matplotlib.pyplot as plt
 
 @dataclass
 class BenchmarkResult:
-    """Store benchmark results"""
+    """
+    Data container for benchmark results.
+    """
 
     test_name: str
     total_operations: int
@@ -23,12 +25,25 @@ class BenchmarkResult:
     timestamp: str = ""
 
     def __post_init__(self):
+        """
+        Initializes timestamp if not provided.
+        """
         if not self.timestamp:
             self.timestamp = datetime.now().isoformat()
 
 
 class BenchmarkRunner:
+    """
+    Orchestrates execution and reporting of PLC benchmarks.
+    """
+
     def __init__(self, adapter: ProtocolAdapter):
+        """
+        Initializes runner with protocol adapter.
+
+        Args:
+            adapter (ProtocolAdapter): Protocol adapter instance.
+        """
         self.api = adapter
         self.results = []
 
@@ -40,13 +55,16 @@ class BenchmarkRunner:
         data_type: str = "bool",
     ) -> BenchmarkResult:
         """
-        Benchmark individual write operations at specified rate
+        Benchmarks individual write operations at specified rate.
 
         Args:
-            target_ops_per_sec: Target operations per second
-            duration_seconds: How long to run the test
-            var_name: Variable to write to
-            data_type: Type of data ("bool", "int16", "int32")
+            target_ops_per_sec (int): Target operations per second.
+            duration_seconds (int): Test duration in seconds.
+            var_name (str): Variable identifier to write to.
+            data_type (str): Data type string (e.g., "bool", "int16").
+
+        Returns:
+            BenchmarkResult: Object containing benchmark metrics.
         """
         print(f"\n{'=' * 60}")
         print(
@@ -122,10 +140,13 @@ class BenchmarkRunner:
 
     def benchmark_bulk_writes(self, repetitions: int = 10) -> BenchmarkResult:
         """
-        Benchmark bulk data writes (entire BulkData array)
+        Benchmarks bulk data writes.
 
         Args:
-            repetitions: Number of times to repeat the bulk write
+            repetitions (int): Number of times to repeat bulk write.
+
+        Returns:
+            BenchmarkResult: Object containing benchmark metrics.
         """
         print(f"\n{'=' * 60}")
         print(f"Bulk Write Benchmark: {repetitions} repetitions")
@@ -180,7 +201,12 @@ class BenchmarkRunner:
         return result
 
     def save_results_report(self, output_dir: str = "results"):
-        """Generate plots and a text report of benchmark results"""
+        """
+        Generates plots and text report of benchmark results.
+
+        Args:
+            output_dir (str): Directory path to save report and plots.
+        """
         os.makedirs(output_dir, exist_ok=True)
 
         # --- Generate plots ---
@@ -247,7 +273,12 @@ class BenchmarkRunner:
         print(f"\n✓ Report and plots saved in '{output_dir}/'")
 
     def _print_result(self, result: BenchmarkResult):
-        """Pretty print benchmark result"""
+        """
+        Prints formatted benchmark result to console.
+
+        Args:
+            result (BenchmarkResult): Result object to print.
+        """
         print(f"\n{'─' * 60}")
         print(f"Results for {result.test_name}")
         print(f"{'─' * 60}")
@@ -262,7 +293,9 @@ class BenchmarkRunner:
         print(f"{'─' * 60}")
 
     def print_summary(self):
-        """Print summary of all benchmark results"""
+        """
+        Prints summary table of all benchmark results.
+        """
         print(f"\n{'=' * 60}")
         print("BENCHMARK SUMMARY")
         print(f"{'=' * 60}\n")
@@ -278,7 +311,12 @@ class BenchmarkRunner:
         print(f"\n{'=' * 60}")
 
     def export_results_json(self, filename: str = "benchmark_results.json"):
-        """Export results to JSON file"""
+        """
+        Exports benchmark results to a JSON file.
+
+        Args:
+            filename (str): Name or path of output JSON file.
+        """
         os.makedirs(os.path.dirname(filename) or ".", exist_ok=True)
         with open(filename, "w") as f:
             json.dump([asdict(r) for r in self.results], f, indent=2)

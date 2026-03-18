@@ -11,9 +11,19 @@ load_dotenv()
 
 
 class S7Adapter(ProtocolAdapter):
-    """Implements the SPS communication via S7 proprietary protocol using python-snap7."""
+    """
+    Implements SPS communication via S7 proprietary protocol using python-snap7.
+    """
 
     def __init__(self, ip=None, rack=None, slot=None):
+        """
+        Initializes S7 adapter with connection and DB parameters.
+
+        Args:
+            ip (str): IP address of PLC.
+            rack (int): Rack number of PLC.
+            slot (int): Slot number of PLC.
+        """
         self.ip = ip or os.getenv("IP", "192.168.106.62")
         self.rack = rack if rack is not None else int(os.getenv("S7_RACK", "0"))
         self.slot = slot if slot is not None else int(os.getenv("S7_SLOT", "1"))
@@ -30,20 +40,42 @@ class S7Adapter(ProtocolAdapter):
         self.bulk_element_size = int(os.getenv("S7_BULK_ELEMENT_SIZE", "8"))
 
     def connect(self) -> None:
-        """Establish connection to S7 PLC"""
+        """
+        Establishes connection to S7 PLC.
+
+        Raises:
+            Exception: Connection failure.
+        """
         self.client = snap7.client.Client()
         self.client.connect(self.ip, self.rack, self.slot)
         print(f"✓ S7 connected to {self.ip} (rack={self.rack}, slot={self.slot})")
 
     def disconnect(self) -> None:
-        """Close connection to S7 PLC"""
+        """
+        Closes connection to S7 PLC.
+
+        Raises:
+            Exception: Disconnection failure.
+        """
         if self.client:
             self.client.disconnect()
             self.client = None
             print("✓ S7 disconnected")
 
     def write(self, var: str, value: Any) -> Tuple[Dict, float]:
-        """Write a single value, return response and latency in ms."""
+        """
+        Writes single value and returns response with latency.
+
+        Args:
+            var (str): Variable identifier or address.
+            value (Any): Value to be written.
+
+        Raises:
+            Exception: Write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         if not self.client:
             raise Exception("Not connected to S7 PLC")
 
@@ -90,7 +122,18 @@ class S7Adapter(ProtocolAdapter):
         return response, latency
 
     def write_bulk_data(self, array_data: List[Any]) -> Tuple[Dict, float]:
-        """Write an entire array of bulk data."""
+        """
+        Writes entire array of bulk data.
+
+        Args:
+            array_data (List[Any]): List of data elements to write.
+
+        Raises:
+            Exception: Bulk write operation failure or if not connected.
+
+        Returns:
+            Tuple[Dict, float]: Response dictionary and latency in ms.
+        """
         if not self.client:
             raise Exception("Not connected to S7 PLC")
 
