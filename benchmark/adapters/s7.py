@@ -22,7 +22,7 @@ class S7Adapter(ProtocolAdapter):
         # DB number for PerformanceData (configure in .env or via constructor)
         self.db_number = int(os.getenv("S7_DB_NUMBER", "7"))
 
-        # Offsets within the DB (configure in .env based on your PLC data block layout)
+        # Offsets within the DB (configure in .env based on PLC data block layout)
         self.bool_offset = int(os.getenv("S7_BOOL_OFFSET", "0"))
         self.int16_offset = int(os.getenv("S7_INT16_OFFSET", "2"))  # int16_01
         self.int32_offset = int(os.getenv("S7_INT32_OFFSET", "12"))  # int32_01

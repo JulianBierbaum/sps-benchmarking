@@ -161,7 +161,7 @@ Nach Abschluss werden im Verzeichnis `results_YYYYMMDD_HHMMSS/` folgende Dateien
 
 ### Kernaussagen
 
-1. **S7-Protokoll ist durchgehend am schnellsten** – besonders bei Bulk-Writes (~100x schneller als OPC UA)
+1. **S7-Protokoll ist durchgehend am schnellsten** – besonders bei Bulk-Writes (~20x schneller als OPC UA)
 2. **WebAPI nicht für hochfrequente Zugriffe geeignet** – maximale Rate ~3 ops/s bei 300ms Latenz
 3. **OPC UA bietet guten Kompromiss** – nahe an S7-Performance, aber standardisiert und weniger manuell
 4. **Datentyp hat kaum Einfluss** – Bool/Int16/Int32 zeigen ähnliche Performance
